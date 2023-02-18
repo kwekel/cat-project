@@ -8,8 +8,6 @@ import { CatBreedImage } from './models/cat-breed-image.model';
 
 @Injectable({ providedIn: 'root'})
 export class CatService {
-  error = new Subject<string>()
-
   constructor(private http: HttpClient) {}
 
   fetchAvailableBreeds() {

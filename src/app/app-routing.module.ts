@@ -6,8 +6,8 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'details', children: [
-    {path: ':id', component: ImageComponent}
+  { path: 'image', children: [
+    { path: ':id', component: ImageComponent }
   ]},
   { path: 'not-found', component: ErrorComponent },
   { path: '**', redirectTo: '/not-found'}
