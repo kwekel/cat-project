@@ -1,4 +1,25 @@
-
-<button class="btn btn-primary" (click)="fetchCatBreeds()">
-  Fetch Posts
-</button>
+<div>
+  <div>
+    <h1>Cat Project</h1>
+  </div>
+  <ul class="list-group" *ngFor="let breed of catBreeds">
+    <li class="card list-group-item">
+      <div class="card-body">
+        <h5 class="card-title">{{ breed.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ breed.origin }}</h6>
+        <p class="card-text">{{ breed.description }}
+        </p>
+        <a class="card-link" [routerLink]="['/image', breed.id]">Show Photo</a>
+      </div>
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p *ngIf="catBreeds.length < 1 && !isFetching && !error">No cats available!</p>
+      <p *ngIf="isFetching && !error">Loading</p>
+      <div *ngIf="error" class="alert alert-danger">
+        <p>An error Occured!</p>
+      </div>
+    </div>
+  </div>
+</div>

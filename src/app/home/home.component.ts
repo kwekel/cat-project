@@ -10,7 +10,7 @@ import { CatBreed } from '../models/cat-breed.model'
 export class HomeComponent {
   catBreeds: CatBreed[] = [];
   isFetching = false
-  error = null
+  error = false
 
   constructor(private catService: CatService) {}
 
@@ -19,10 +19,15 @@ export class HomeComponent {
   }
 
   fetchCatBreeds() {
-    this.catService.fetchAvailableBreeds().subscribe(cat => {
-      console.log(cat)
-      this.catBreeds = cat
-    })
-
+    this.isFetching = true
+    this.catService.fetchAvailableBreeds().subscribe({
+      next: catBreeds => {
+        this.catBreeds = catBreeds
+        this.isFetching = false
+      }, 
+      error: () => {
+        this.error = true
+        this.isFetching = false
+      }})
   }
 }

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DetailsComponent } from './details/details.component';
+import { ImageComponent } from './image/image.component';
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CatInterseptorService } from './cat-interceptor.service';
@@ -13,7 +13,7 @@ import { CatInterseptorService } from './cat-interceptor.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent,
+    ImageComponent,
     ErrorComponent
   ],
   imports: [

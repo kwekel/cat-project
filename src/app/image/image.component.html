@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="row-xs-12 row-sm-4">
+    <button class="btn btn-secondary" routerLink="/">Back to homepage</button>
+    <button class="btn btn-primary" (click)="fetchCatBreedImage()">Load new Cat</button>
+  </div>
+  <img *ngIf="imagePath" src="{{ imagePath }}" alt="Cat breed image" class="img-thumbnail" />
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p *ngIf="!imagePath && !isFetching && !error" class="alert alert-warning">No cats of this breed available!</p>
+      <p *ngIf="isFetching && !error">Loading</p>
+      <div *ngIf="error" class="alert alert-danger">
+        <p>An error Occured!</p>
+      </div>
+    </div>
+  </div>
+</div>
